@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#4a6741" />
+  <title>Lista de Presentes – Giselle & Anderson</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Material-like via CSS próprio, sem libs externas para manter tudo estático -->
+</head>
+<body>
+  <header class="app-bar">
+    <div class="app-bar__title">
+      <h1>Lista de Presentes – Giselle &amp; Anderson</h1>
+      <p class="subtitle">11/10/2025</p>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Navegação">
+      <button id="tab-lista" class="tab active" role="tab" aria-selected="true" aria-controls="panel-lista">Lista</button>
+      <button id="tab-sobre" class="tab" role="tab" aria-selected="false" aria-controls="panel-sobre">Sobre</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="panel-lista" role="tabpanel" aria-labelledby="tab-lista">
+      <div id="status-area" class="status" aria-live="polite"></div>
+      <div id="cards" class="cards" aria-busy="true" aria-label="Lista de presentes"></div>
+    </section>
+
+    <section id="panel-sobre" role="tabpanel" aria-labelledby="tab-sobre" hidden>
+      <article class="card about">
+        <h2>Sobre a Lista</h2>
+        <p>Você pode escolher qualquer presente da lista e comprar onde preferir — não restringimos a lojas ou modelos específicos.</p>
+        <p>Ao confirmar um presente, ele ficará marcado como “Já presenteado” com o seu nome (se quiser informar) e, opcionalmente, uma mensagem.</p>
+        <p>Obrigado pelo carinho! 💛</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- Modal de confirmação -->
+  <dialog id="confirmDialog" aria-labelledby="confirmTitle">
+    <form id="confirmForm" method="dialog">
+      <h3 id="confirmTitle">Confirmar presente</h3>
+      <p id="confirmSubtitle" class="confirm-subtitle"></p>
+      <label for="nomeInput">Seu nome (opcional)</label>
+      <input id="nomeInput" name="nome" type="text" maxlength="80" placeholder="Ex.: Maria e João" />
+
+      <label for="mensagemInput">Mensagem (opcional)</label>
+      <textarea id="mensagemInput" name="mensagem" maxlength="300" rows="3" placeholder="Deixe um recado curto (máx. 300 caracteres)"></textarea>
+
+      <div class="dialog-actions">
+        <button type="button" class="btn btn-text" id="cancelBtn">Cancelar</button>
+        <button type="submit" class="btn" id="confirmBtn">Confirmar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer>
+    <small>Feito com 💚 para o nosso casamento</small>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js');
+      });
+    }
+  </script>
+</body>
+</html>

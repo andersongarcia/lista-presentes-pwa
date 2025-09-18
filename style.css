@@ -1,0 +1,88 @@
+:root{
+  --primary:#4a6741;
+  --primary-variant:#2f4b29;
+  --on-primary:#fff;
+  --surface:#ffffff;
+  --on-surface:#263238;
+  --muted:#6b7b83;
+  --bg:#f3f5f6;
+  --ok:#2e7d32;
+  --warn:#b26a00;
+  --error:#c62828;
+  --radius:16px;
+  --shadow:0 10px 25px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--on-surface);
+}
+
+.app-bar{
+  position:sticky; top:0; z-index:10;
+  background:linear-gradient(0deg,var(--primary),var(--primary-variant));
+  color:var(--on-primary);
+  padding:16px 20px;
+  box-shadow:var(--shadow);
+}
+.app-bar__title{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+.app-bar h1{font-size:1.25rem; margin:0}
+.subtitle{margin:0; opacity:.9}
+
+.tabs{display:flex; gap:8px; margin-top:12px}
+.tab{
+  appearance:none; border:none; background:rgba(255,255,255,.15);
+  color:#fff; padding:10px 14px; border-radius:999px; cursor:pointer;
+}
+.tab.active{background:#fff; color:var(--primary); font-weight:600}
+
+main{max-width:920px; margin:16px auto; padding:0 12px}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px}
+.card{
+  background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow);
+  padding:14px; display:flex; gap:12px; align-items:flex-start;
+}
+.card .thumb{
+  width:72px; height:72px; border-radius:12px; background:#e9eff0;
+  display:flex; align-items:center; justify-content:center; flex:0 0 72px; overflow:hidden;
+}
+.card .thumb img{width:100%; height:100%; object-fit:cover}
+.card h3{margin:0 0 6px 0; font-size:1.05rem}
+.card p{margin:0; color:var(--muted)}
+.card .meta{margin-top:8px; font-size:.9rem}
+.badge{
+  display:inline-block; padding:4px 10px; border-radius:999px; font-size:.8rem; font-weight:600;
+}
+.badge.ok{background:#e8f5e9; color:var(--ok)}
+.badge.busy{background:#fff3e0; color:var(--warn)}
+.badge.sold{background:#ffebee; color:var(--error)}
+.card .actions{margin-top:12px; display:flex; gap:8px; flex-wrap:wrap}
+
+.btn{
+  appearance:none; border:none; background:var(--primary); color:var(--on-primary);
+  padding:10px 14px; border-radius:12px; cursor:pointer; box-shadow:var(--shadow); font-weight:600;
+}
+.btn[disabled]{opacity:.6; cursor:not-allowed}
+.btn-text{background:transparent; color:var(--primary); box-shadow:none}
+
+.status{margin:8px 0 14px 0; color:var(--muted)}
+.about h2{margin-top:0}
+
+dialog{
+  border:none; border-radius:16px; padding:0; box-shadow:var(--shadow); width:min(92vw,520px);
+}
+dialog::backdrop{background:rgba(0,0,0,.3)}
+#confirmForm{padding:16px}
+#confirmForm h3{margin:0 0 8px 0}
+.confirm-subtitle{margin:0 0 12px 0; color:var(--muted)}
+#confirmForm label{display:block; font-weight:600; margin:.5rem 0 .25rem}
+#confirmForm input, #confirmForm textarea{
+  width:100%; padding:10px 12px; border:1px solid #d0d7de; border-radius:10px; font:inherit; background:#fff;
+}
+.dialog-actions{display:flex; gap:8px; justify-content:flex-end; margin-top:14px}
+
+footer{padding:28px 16px; text-align:center; color:var(--muted)}
