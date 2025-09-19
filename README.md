@@ -1,10 +1,10 @@
 # Lista de Presentes – PWA + GAS
 
-PWA (HTML/CSS/JS + Manifest + Service Worker) para a Lista de Presentes do casamento de **Giselle & Anderson**, com backend mínimo em **Google Apps Script** lendo/escrevendo **no MESMO Google Sheets** do RSVP (em *abas novas*).
+PWA (HTML/CSS/JS + Manifest + Service Worker) para a Lista de Presentes do casamento, com backend mínimo em **Google Apps Script** lendo/escrevendo no Google Sheets.
 
-## Estrutura das Abas (na mesma planilha do RSVP)
+## Estrutura das Abas
 
-Crie DUAS abas **novas**:
+Crie DUAS abas:
 
 ### 1) `presentes`
 **Cabeçalho (linha 1) EXATA:**
