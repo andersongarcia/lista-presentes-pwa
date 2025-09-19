@@ -173,7 +173,8 @@ formEl.addEventListener('submit', async (ev) => {
     setBusy(true, 'Confirmando presente...');
     const res = await fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      // 'text/plain' evita preflight OPTIONS e funciona no GAS
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       cache: 'no-store',
       body: JSON.stringify(payload)
     });
